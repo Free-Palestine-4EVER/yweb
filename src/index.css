@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Wadi Rum Guide Design System - Desert-Inspired Colors & Typography */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Desert Color Palette */
+    --desert-sand: 35 35% 85%;        /* #E8D9C4 */
+    --dune-amber: 33 50% 57%;         /* #C99A5B */
+    --night-sky: 207 57% 11%;         /* #0D1B2A */
+    --oasis-green: 166 47% 34%;       /* #2E7D6B */
+    --cloud-white: 40 33% 96%;        /* #F8F6F2 */
+    
+    /* Semantic Color Mapping */
+    --background: var(--cloud-white);
+    --foreground: var(--night-sky);
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: var(--cloud-white);
+    --card-foreground: var(--night-sky);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: var(--cloud-white);
+    --popover-foreground: var(--night-sky);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--night-sky);
+    --primary-foreground: var(--cloud-white);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--desert-sand);
+    --secondary-foreground: var(--night-sky);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--desert-sand);
+    --muted-foreground: 207 30% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--dune-amber);
+    --accent-foreground: var(--cloud-white);
+
+    --success: var(--oasis-green);
+    --success-foreground: var(--cloud-white);
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: var(--cloud-white);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 25% 88%;
+    --input: 35 25% 88%;
+    --ring: var(--dune-amber);
 
     --radius: 0.5rem;
+
+    /* Desert Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--dune-amber)) 0%, hsl(var(--desert-sand)) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(var(--dune-amber)) 0%, hsl(var(--night-sky)) 100%);
+    --gradient-sand: linear-gradient(45deg, hsl(var(--desert-sand)) 0%, hsl(var(--cloud-white)) 100%);
+    
+    /* Shadows & Effects */
+    --shadow-desert: 0 10px 30px -10px hsl(var(--dune-amber) / 0.3);
+    --shadow-night: 0 10px 25px -5px hsl(var(--night-sky) / 0.2);
+    --shadow-soft: 0 4px 20px hsl(var(--desert-sand) / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +125,56 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold tracking-tight;
+  }
+
+  .hero-text {
+    @apply bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .shadow-desert {
+    box-shadow: var(--shadow-desert);
+  }
+
+  .shadow-night {
+    box-shadow: var(--shadow-night);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .gradient-sand {
+    background: var(--gradient-sand);
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+
+  [dir="rtl"] .rtl\:text-right {
+    text-align: right;
   }
 }
