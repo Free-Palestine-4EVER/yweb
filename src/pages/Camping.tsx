@@ -224,9 +224,9 @@ export default function Camping() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-sunset text-cloud-white">
+      <section className="py-20 bg-night-sky text-cloud-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-6 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-6 animate-fade-in text-cloud-white">
             Not Sure Which Style to Choose?
           </h2>
           <p className="text-xl text-cloud-white/90 mb-8 max-w-3xl mx-auto animate-fade-in animate-stagger-1">
@@ -237,7 +237,7 @@ export default function Camping() {
               variant="outline" 
               size="lg" 
               asChild
-              className="bg-cloud-white/10 text-cloud-white border-cloud-white/30 hover:bg-cloud-white hover:text-night-sky hover:scale-105 transition-all duration-300"
+              className="bg-dune-amber text-night-sky border-dune-amber hover:bg-dune-amber/90 hover:text-night-sky hover:scale-105 transition-all duration-300"
             >
               <a href="/contact#booking">
                 Get My Recommendation
@@ -247,7 +247,7 @@ export default function Camping() {
               variant="outline" 
               size="lg" 
               asChild
-              className="bg-cloud-white/10 text-cloud-white border-cloud-white/30 hover:bg-cloud-white hover:text-night-sky hover:scale-105 transition-all duration-300"
+              className="bg-cloud-white text-night-sky border-cloud-white hover:bg-cloud-white/90 hover:text-night-sky hover:scale-105 transition-all duration-300"
             >
               <a href="https://wa.me/962779886572" target="_blank">
                 WhatsApp Yousef
