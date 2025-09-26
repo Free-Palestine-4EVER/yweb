@@ -333,10 +333,10 @@ export default function Home() {
       {/* Booking Strip */}
       <section id="booking" className="py-20 bg-gradient-sunset text-cloud-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4 text-dune-amber">
             Ready for Your Desert Adventure?
           </h2>
-          <p className="text-xl text-cloud-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-dune-amber/90 mb-8 max-w-2xl mx-auto">
             Tell me your dates and what you'd like to do. I'll reply personally and help plan every detail.
           </p>
           <Button 
