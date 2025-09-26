@@ -4,9 +4,15 @@ import { Badge } from "@/components/ui/badge";
 import ExperienceCard from "@/components/ExperienceCard";
 import { getAllExperiences } from "@/data/experiences";
 import heroImage from "@/assets/hero-desert.jpg";
-import yousefPortrait from "@/assets/yousef-portrait.jpg";
+import yousefPortrait from "@/assets/yousef-main-1.jpeg";
+import yousefAbout from "@/assets/yousef-main-2.jpeg";
 import bubbleCamp from "@/assets/bubble-camp.jpg";
-import jeepTour from "@/assets/jeep-tour.jpg";
+import jeepTour from "@/assets/jeep_tour.jpg";
+import outsideCamping from "@/assets/outside_camping.jpg";
+import camelRide from "@/assets/camel_ride.jpg";
+import trekking from "@/assets/trekking.jpg";
+import touristJumping from "@/assets/picture_with_tourist.jpg";
+import FloatingObjects from "@/components/FloatingObjects";
 
 const experiences = getAllExperiences();
 
@@ -28,7 +34,7 @@ const campingOptions = [
   {
     title: "Outside Camping Under Stars",
     description: "Pure desert silence, flexible locations, and sunrise at your doorstep.",
-    image: heroImage,
+    image: outsideCamping,
     href: "/camping#outside-camping",
     badge: "Adventure"
   }
@@ -80,6 +86,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <FloatingObjects />
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div 
@@ -95,14 +102,14 @@ export default function Home() {
         </div>
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold text-cloud-white mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-heading font-bold text-cloud-white mb-6 leading-tight animate-fade-in">
             Explore Wadi Rum with a 
-            <span className="bg-gradient-to-r from-dune-amber to-desert-sand bg-clip-text text-transparent"> Private Bedouin Guide</span>
+            <span className="bg-gradient-to-r from-dune-amber to-desert-sand bg-clip-text text-transparent animate-pulse-glow"> Private Bedouin Guide</span>
           </h1>
-          <p className="text-xl md:text-2xl text-cloud-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-cloud-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in animate-stagger-1">
             I'm Yousef, 22, born and raised in Wadi Rum. Join me for authentic desert experiences—jeep tours, hiking, camel rides—and sleep under a sky full of stars.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animate-stagger-2">
             <Button 
               variant="hero" 
               size="lg" 
@@ -129,7 +136,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
+              <div className="order-2 lg:order-1 animate-slide-in-left">
                 <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-6">
                   Your Local Desert Guide
                 </h2>
@@ -162,13 +169,15 @@ export default function Home() {
                   </a>
                 </Button>
               </div>
-              <div className="order-1 lg:order-2">
+              <div className="order-1 lg:order-2 animate-slide-in-right">
                 <div className="relative">
                   <img 
                     src={yousefPortrait} 
                     alt="Yousef - Wadi Rum Guide"
-                    className="w-full max-w-md mx-auto rounded-2xl shadow-desert"
+                    className="w-full max-w-md mx-auto rounded-2xl shadow-desert hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-dune-amber/20 rounded-full animate-float" />
+                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-desert-sand/15 rounded-full animate-float-reverse" />
                 </div>
               </div>
             </div>
@@ -187,17 +196,18 @@ export default function Home() {
               Choose your adventure: from gentle jeep tours to challenging summit climbs. Every experience is private and adapted to your pace.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {experiences.map((experience) => (
-              <ExperienceCard
-                key={experience.slug}
-                title={experience.title}
-                description={experience.description}
-                duration={experience.duration}
-                difficulty={experience.difficulty}
-                slug={experience.slug}
-                highlights={experience.highlights.slice(0, 3)}
-              />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-in">
+            {experiences.map((experience, index) => (
+              <div key={experience.slug} className={`animate-fade-in animate-stagger-${Math.min((index % 4) + 1, 4)}`}>
+                <ExperienceCard
+                  title={experience.title}
+                  description={experience.description}
+                  duration={experience.duration}
+                  difficulty={experience.difficulty}
+                  slug={experience.slug}
+                  highlights={experience.highlights.slice(0, 3)}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -214,9 +224,9 @@ export default function Home() {
               Choose how you want to sleep in the desert. From luxury bubbles to classic Bedouin tents—or roll out your mat and watch the Milky Way.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 animate-fade-in">
             {campingOptions.map((option, index) => (
-              <div key={index} className="group">
+              <div key={index} className={`group animate-fade-in animate-stagger-${Math.min(index + 1, 3)}`}>
                 <div className="relative overflow-hidden rounded-2xl mb-4">
                   <img 
                     src={option.image} 
@@ -247,7 +257,7 @@ export default function Home() {
       {/* Instagram Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
               From the Desert Today
             </h2>
@@ -256,24 +266,35 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="aspect-square bg-desert-sand rounded-lg overflow-hidden">
+            {[
+              { img: touristJumping, alt: "Desert adventure with tourists" },
+              { img: trekking, alt: "Trekking in Wadi Rum" },
+              { img: camelRide, alt: "Camel ride experience" },
+              { img: jeepTour, alt: "Jeep tour in the desert" },
+              { img: outsideCamping, alt: "Camping under the stars" },
+              { img: yousefAbout, alt: "Yousef in traditional attire" }
+            ].map((item, i) => (
+              <div key={i} className={`aspect-square bg-desert-sand rounded-lg overflow-hidden animate-fade-in animate-stagger-${Math.min(i + 1, 4)}`}>
                 <img 
-                  src={heroImage} 
-                  alt={`Instagram post ${i}`}
+                  src={item.img} 
+                  alt={item.alt}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                 />
               </div>
             ))}
           </div>
-          <div className="text-center">
-            <Button variant="outline" size="lg" className="hover:bg-dune-amber hover:text-accent-foreground hover:border-dune-amber">
-              <Instagram className="mr-2 h-5 w-5" />
-              Follow on Instagram
+          <div className="text-center animate-fade-in animate-stagger-3">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="hover:bg-dune-amber hover:text-accent-foreground hover:border-dune-amber animate-pulse-glow"
+              asChild
+            >
+              <a href="https://www.instagram.com/youssef.wadirum" target="_blank" rel="noopener noreferrer">
+                <Instagram className="mr-2 h-5 w-5" />
+                Follow @youssef.wadirum
+              </a>
             </Button>
-            <p className="text-sm text-muted-foreground mt-2">
-              TODO: Replace with real Instagram integration
-            </p>
           </div>
         </div>
       </section>

@@ -32,7 +32,7 @@ export default function ExperienceCard({
   isPrivate = true
 }: ExperienceCardProps) {
   return (
-    <Card className="group hover:shadow-desert transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+    <Card className="group hover:shadow-desert transition-all duration-300 hover:-translate-y-1 overflow-hidden animate-fade-in">
       <CardHeader className="p-0">
         <div className="aspect-video bg-gradient-sand relative overflow-hidden">
           {image ? (
@@ -43,17 +43,17 @@ export default function ExperienceCard({
             />
           ) : (
             <div className="w-full h-full bg-gradient-sand flex items-center justify-center">
-              <MapPin className="h-12 w-12 text-dune-amber opacity-40" />
+              <MapPin className="h-12 w-12 text-dune-amber opacity-40 animate-float" />
             </div>
           )}
           <div className="absolute top-3 left-3 flex gap-2">
             {isPrivate && (
-              <Badge variant="secondary" className="bg-night-sky/90 text-cloud-white border-none">
+              <Badge variant="secondary" className="bg-night-sky/90 text-cloud-white border-none animate-pulse-glow">
                 <Users className="h-3 w-3 mr-1" />
                 Private Guide
               </Badge>
             )}
-            <Badge className={`${difficultyColors[difficulty]} border-none`}>
+            <Badge className={`${difficultyColors[difficulty]} border-none hover:scale-105 transition-transform`}>
               <TrendingUp className="h-3 w-3 mr-1" />
               {difficulty}
             </Badge>

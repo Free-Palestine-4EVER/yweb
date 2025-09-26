@@ -1,3 +1,12 @@
+import hikingImage from "@/assets/hiking-desert.jpg";
+import trekkingImage from "@/assets/trekking.jpg";
+import jeepFullImage from "@/assets/jeep_tour.jpg";
+import jeepHalfImage from "@/assets/jeep_tour.jpg";
+import camelImage from "@/assets/camel_ride.jpg";
+import summitImage from "@/assets/mountain-summit.jpg";
+import burdahImage from "@/assets/burdah-arch.jpg";
+import khashImage from "@/assets/hiking-desert.jpg";
+
 export interface Experience {
   slug: string;
   title: string;
@@ -22,6 +31,7 @@ export const experiences: Experience[] = [
     duration: "Half-day or Full-day options",
     difficulty: "Easy",
     bestTime: "Morning or late afternoon for cooler temperatures",
+    image: hikingImage,
     highlights: ["Scenic valleys", "Hidden canyons", "Rock formations", "Desert wildlife"],
     itinerary: [
       "Meet at Wadi Rum Village and equipment check",
@@ -71,6 +81,7 @@ export const experiences: Experience[] = [
     duration: "1-3 days",
     difficulty: "Moderate",
     bestTime: "Spring and autumn for multi-day comfort",
+    image: trekkingImage,
     highlights: ["Ridge line sunsets", "Desert camping", "Sunrise views", "Ancient routes"],
     itinerary: [
       "Day 1: Village briefing and gear check",
@@ -122,6 +133,7 @@ export const experiences: Experience[] = [
     duration: "~8 hours",
     difficulty: "Easy",
     bestTime: "All year with seasonal time adjustments",
+    image: jeepFullImage,
     highlights: ["Lawrence's Spring", "Red Sand Dune", "Natural bridges", "Bedouin tea ceremony"],
     itinerary: [
       "8:00 AM - Pickup from accommodation or village meeting point",
@@ -170,6 +182,7 @@ export const experiences: Experience[] = [
     duration: "~4 hours (morning or afternoon)",
     difficulty: "Easy", 
     bestTime: "Morning for cooler temperatures, afternoon for sunset",
+    image: jeepHalfImage,
     highlights: ["Natural arch", "Desert vistas", "Tea ceremony", "Rock formations"],
     itinerary: [
       "Morning Tour (8:00 AM - 12:00 PM):",
@@ -219,6 +232,7 @@ export const experiences: Experience[] = [
     duration: "1-3 hours (extendable)",
     difficulty: "Easy",
     bestTime: "Early morning or late afternoon",
+    image: camelImage,
     highlights: ["Traditional transport", "Peaceful desert crossing", "Camel handling experience", "Desert silence"],
     itinerary: [
       "Meet your camel and handler at the departure point",
@@ -266,6 +280,7 @@ export const experiences: Experience[] = [
     duration: "Full day",
     difficulty: "Moderate", 
     bestTime: "Cooler months (October-April) recommended",
+    image: summitImage,
     highlights: ["Jordan's highest peak", "Saudi border views", "Challenging climb", "Achievement summit"],
     itinerary: [
       "Early morning departure from village (6:00 AM)",
@@ -316,6 +331,7 @@ export const experiences: Experience[] = [
     duration: "4-6 hours",
     difficulty: "Moderate",
     bestTime: "Morning start recommended for cooler hiking",
+    image: burdahImage,
     highlights: ["Natural rock bridge", "Scrambling adventure", "Panoramic views", "Geological wonder"],
     itinerary: [
       "Morning meeting and equipment check",
@@ -365,6 +381,7 @@ export const experiences: Experience[] = [
     duration: "1-2 days",
     difficulty: "Moderate",
     bestTime: "All seasons with appropriate gear",
+    image: khashImage,
     highlights: ["Ridge walking", "Sunrise/sunset camps", "Sweeping views", "Peaceful solitude"],
     itinerary: [
       "Day 1: Afternoon departure from village",

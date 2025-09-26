@@ -2,7 +2,8 @@ import { Users, MapPin, Star, Shield, Heart, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import yousefPortrait from "@/assets/yousef-portrait.jpg";
+import yousefAbout from "@/assets/yousef-main-2.jpeg";
+import FloatingObjects from "@/components/FloatingObjects";
 import heroImage from "@/assets/hero-desert.jpg";
 
 const highlights = [
@@ -59,6 +60,7 @@ const services = [
 export default function About() {
   return (
     <div className="min-h-screen">
+      <FloatingObjects />
       {/* Hero Section */}
       <section className="relative h-96 flex items-center justify-center overflow-hidden">
         <div 
@@ -106,7 +108,7 @@ export default function About() {
               <div className="order-1 lg:order-2">
                 <div className="relative max-w-md mx-auto">
                   <img 
-                    src={yousefPortrait} 
+                    src={yousefAbout} 
                     alt="Yousef - Wadi Rum Guide"
                     className="w-full rounded-2xl shadow-desert"
                   />
