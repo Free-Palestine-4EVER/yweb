@@ -1,6 +1,6 @@
 import hikingImage from "@/assets/hiking-desert.jpg";
 import trekkingImage from "@/assets/trekking.jpg";
-import jeepFullImage from "@/assets/jeep_tour.jpg";
+import jeepFullImage from "@/assets/jeep-tour-8hour.jpg";
 import jeepHalfImage from "@/assets/jeep_tour.jpg";
 import camelImage from "@/assets/camel_ride.jpg";
 import summitImage from "@/assets/mountain-summit.jpg";
