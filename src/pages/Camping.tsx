@@ -234,20 +234,20 @@ export default function Camping() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animate-stagger-2">
             <Button 
-              variant="outline" 
+              variant="desert" 
               size="lg" 
               asChild
-              className="bg-dune-amber text-night-sky border-dune-amber hover:bg-dune-amber/90 hover:text-night-sky hover:scale-105 transition-all duration-300"
+              className="hover:scale-105 transition-all duration-300"
             >
               <a href="/contact#booking">
                 Get My Recommendation
               </a>
             </Button>
             <Button 
-              variant="outline" 
+              variant="sand" 
               size="lg" 
               asChild
-              className="bg-cloud-white text-night-sky border-cloud-white hover:bg-cloud-white/90 hover:text-night-sky hover:scale-105 transition-all duration-300"
+              className="hover:scale-105 transition-all duration-300"
             >
               <a href="https://wa.me/962779886572" target="_blank">
                 WhatsApp Yousef

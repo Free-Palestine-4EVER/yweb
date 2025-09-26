@@ -116,10 +116,10 @@ export default function Home() {
               Book / Reserve
             </Button>
             <Button 
-              variant="outline" 
+              variant="sand" 
               size="lg"
               onClick={scrollToExperiences}
-              className="text-lg px-8 py-4 bg-cloud-white/10 text-cloud-white border-cloud-white/30 hover:bg-cloud-white/20"
+              className="text-lg px-8 py-4"
             >
               See Experiences
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -243,7 +243,7 @@ export default function Home() {
                 <p className="text-foreground/80 mb-4 leading-relaxed">
                   {option.description}
                 </p>
-                <Button variant="outline" asChild className="group-hover:bg-dune-amber group-hover:text-accent-foreground group-hover:border-dune-amber transition-all">
+                <Button variant="desert" asChild className="transition-all">
                   <a href={option.href}>Book this style</a>
                 </Button>
               </div>
@@ -283,9 +283,9 @@ export default function Home() {
           </div>
           <div className="text-center animate-fade-in animate-stagger-3">
             <Button 
-              variant="outline" 
+              variant="desert" 
               size="lg" 
-              className="hover:bg-dune-amber hover:text-accent-foreground hover:border-dune-amber animate-pulse-glow"
+              className="animate-pulse-glow"
               asChild
             >
               <a href="https://www.instagram.com/youssef.wadirum" target="_blank" rel="noopener noreferrer">
@@ -341,10 +341,10 @@ export default function Home() {
             Tell me your dates and what you'd like to do. I'll reply personally and help plan every detail.
           </p>
           <Button 
-            variant="outline" 
+            variant="sand" 
             size="lg" 
             asChild
-            className="bg-cloud-white/10 text-cloud-white border-cloud-white/30 hover:bg-cloud-white hover:text-night-sky text-lg px-8 py-4"
+            className="text-lg px-8 py-4"
           >
             <a href="/contact#booking">
               Start Planning Your Trip
