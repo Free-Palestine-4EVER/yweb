@@ -103,12 +103,8 @@ export default function Home() {
         
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
           <h1 className="text-5xl md:text-7xl font-heading font-bold text-cloud-white mb-6 leading-tight animate-fade-in">
-            Explore Wadi Rum with a 
-            <span className="bg-gradient-to-r from-dune-amber to-desert-sand bg-clip-text text-transparent animate-pulse-glow"> Private Bedouin Guide</span>
+            Explore Wadi Rum with a Yousef
           </h1>
-          <p className="text-xl md:text-2xl text-cloud-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in animate-stagger-1">
-            I'm Yousef, 22, born and raised in Wadi Rum. Join me for authentic desert experiences—jeep tours, hiking, camel rides—and sleep under a sky full of stars.
-          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animate-stagger-2">
             <Button 
               variant="hero" 
@@ -205,6 +201,7 @@ export default function Home() {
                   duration={experience.duration}
                   difficulty={experience.difficulty}
                   slug={experience.slug}
+                  image={experience.image}
                   highlights={experience.highlights.slice(0, 3)}
                 />
               </div>

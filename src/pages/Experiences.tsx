@@ -88,6 +88,7 @@ export default function Experiences() {
                 duration={experience.duration}
                 difficulty={experience.difficulty}
                 slug={experience.slug}
+                image={experience.image}
                 highlights={experience.highlights.slice(0, 4)}
               />
             ))}
