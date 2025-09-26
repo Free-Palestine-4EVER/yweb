@@ -1,4 +1,4 @@
-import whatsappIcon from "@/assets/whatsapp-icon.png";
+import whatsappIcon from "@/assets/whatsapp-official.webp";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_NUMBER = "962779886572";
