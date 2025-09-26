@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import whatsappIcon from "@/assets/whatsapp-icon.png";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_NUMBER = "962779886572";
@@ -14,10 +14,14 @@ export default function WhatsAppButton() {
         onClick={handleClick}
         variant="success" 
         size="lg"
-        className="rounded-full h-14 w-14 shadow-night hover:shadow-desert transition-all duration-300 hover:scale-110"
+        className="rounded-full h-14 w-14 shadow-night hover:shadow-desert transition-all duration-300 hover:scale-110 p-0"
         aria-label="Chat on WhatsApp"
       >
-        <MessageCircle className="h-6 w-6" />
+        <img 
+          src={whatsappIcon} 
+          alt="WhatsApp" 
+          className="h-8 w-8"
+        />
       </Button>
     </div>
   );

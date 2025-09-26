@@ -105,8 +105,8 @@ export default function Camping() {
                 <p className="text-foreground/70 text-sm">Bubble camps with all amenities</p>
               </div>
               <div className="text-center animate-fade-in animate-stagger-2">
-                <div className="w-16 h-16 bg-oasis-green rounded-full flex items-center justify-center mx-auto mb-4 animate-float-reverse">
-                  <Users className="h-8 w-8 text-success-foreground" />
+                <div className="w-16 h-16 bg-dune-amber rounded-full flex items-center justify-center mx-auto mb-4 animate-float-reverse">
+                  <Users className="h-8 w-8 text-accent-foreground" />
                 </div>
                 <h3 className="font-heading font-semibold text-foreground mb-2">Cultural</h3>
                 <p className="text-foreground/70 text-sm">Traditional Bedouin experience</p>
@@ -165,7 +165,7 @@ export default function Camping() {
                         <ul className="space-y-2">
                           {option.pros.map((pro, i) => (
                             <li key={i} className="flex items-start">
-                              <div className="w-2 h-2 rounded-full bg-oasis-green mt-2 mr-3 flex-shrink-0"></div>
+                              <div className="w-2 h-2 rounded-full bg-dune-amber mt-2 mr-3 flex-shrink-0"></div>
                               <span className="text-foreground/80">{pro}</span>
                             </li>
                           ))}

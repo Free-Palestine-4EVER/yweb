@@ -50,8 +50,8 @@ export default function Experiences() {
                 <p className="text-foreground/70">From easy camel rides to challenging summit climbs</p>
               </div>
               <div className="p-6">
-                <div className="w-16 h-16 bg-oasis-green rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-success-foreground">100%</span>
+                <div className="w-16 h-16 bg-dune-amber rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-accent-foreground">100%</span>
                 </div>
                 <h3 className="font-heading font-semibold text-foreground mb-2">Private Tours</h3>
                 <p className="text-foreground/70">Every experience is exclusively yours</p>

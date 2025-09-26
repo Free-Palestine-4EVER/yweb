@@ -323,7 +323,7 @@ ${formData.message ? `💬 Message: ${formData.message}` : ''}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <Card className="text-center hover:shadow-desert transition-all">
                 <CardContent className="p-6">
-                  <MessageCircle className="h-8 w-8 text-oasis-green mx-auto mb-3" />
+                  <MessageCircle className="h-8 w-8 text-dune-amber mx-auto mb-3" />
                   <h3 className="font-heading font-semibold mb-2">WhatsApp</h3>
                   <p className="text-sm text-muted-foreground mb-3">Fastest response</p>
                   <Button variant="outline" size="sm" asChild>
@@ -643,7 +643,7 @@ ${formData.message ? `💬 Message: ${formData.message}` : ''}
             </h2>
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
-                <MessageCircle className="h-8 w-8 text-oasis-green mx-auto mb-3" />
+                <MessageCircle className="h-8 w-8 text-dune-amber mx-auto mb-3" />
                 <h3 className="font-heading font-semibold mb-2">WhatsApp</h3>
                 <p className="text-foreground/80">+962 7 7988 6572</p>
                 <p className="text-sm text-muted-foreground">Available 7AM - 10PM Jordan time</p>

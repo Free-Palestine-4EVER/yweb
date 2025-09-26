@@ -16,7 +16,7 @@ interface ExperienceCardProps {
 }
 
 const difficultyColors = {
-  Easy: "bg-oasis-green text-success-foreground",
+  Easy: "bg-dune-amber text-accent-foreground",
   Moderate: "bg-dune-amber text-accent-foreground",
   Challenging: "bg-destructive text-destructive-foreground"
 };

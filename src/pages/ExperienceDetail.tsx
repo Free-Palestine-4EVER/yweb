@@ -8,7 +8,7 @@ import { getExperience } from "@/data/experiences";
 import heroImage from "@/assets/hero-desert.jpg";
 
 const difficultyColors = {
-  Easy: "bg-oasis-green text-success-foreground",
+  Easy: "bg-dune-amber text-accent-foreground",
   Moderate: "bg-dune-amber text-accent-foreground", 
   Challenging: "bg-destructive text-destructive-foreground"
 };
@@ -116,7 +116,7 @@ export default function ExperienceDetail() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {experience.highlights.map((highlight, index) => (
                         <div key={index} className="flex items-center">
-                          <CheckCircle className="h-5 w-5 text-oasis-green mr-3" />
+                          <CheckCircle className="h-5 w-5 text-dune-amber mr-3" />
                           <span className="text-foreground/80">{highlight}</span>
                         </div>
                       ))}
@@ -152,7 +152,7 @@ export default function ExperienceDetail() {
                       <div className="space-y-2">
                         {experience.included.map((item, index) => (
                           <div key={index} className="flex items-center">
-                            <CheckCircle className="h-4 w-4 text-oasis-green mr-3" />
+                            <CheckCircle className="h-4 w-4 text-dune-amber mr-3" />
                             <span className="text-foreground/80">{item}</span>
                           </div>
                         ))}

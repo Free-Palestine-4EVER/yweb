@@ -35,7 +35,7 @@
     --accent: var(--dune-amber);
     --accent-foreground: var(--cloud-white);
 
-    --success: var(--oasis-green);
+    --success: var(--dune-amber);
     --success-foreground: var(--cloud-white);
 
     --destructive: 0 84.2% 60.2%;
