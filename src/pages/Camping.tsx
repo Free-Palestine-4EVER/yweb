@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import bubbleCamp from "@/assets/bubble-camp.jpg";
 import outsideCamping from "@/assets/outside_camping.jpg";
-import traditionalCamp from "@/assets/tented-camp-hero.jpg";
+import traditionalCamp from "@/assets/traditional-camp-new.jpg";
 import FloatingObjects from "@/components/FloatingObjects";
 import heroImage from "@/assets/hero-desert.jpg";
 

@@ -7,7 +7,7 @@ import heroImage from "@/assets/hero-desert.jpg";
 import yousefPortrait from "@/assets/yousef-main-1.jpeg";
 import yousefAbout from "@/assets/yousef-main-2.jpeg";
 import bubbleCamp from "@/assets/bubble-camp.jpg";
-import traditionalCamp from "@/assets/traditional-camp.jpg";
+import traditionalCamp from "@/assets/traditional-camp-new.jpg";
 import jeepTour from "@/assets/jeep_tour.jpg";
 import outsideCamping from "@/assets/outside_camping.jpg";
 import camelRide from "@/assets/camel_ride.jpg";
