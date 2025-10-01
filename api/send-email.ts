@@ -1,4 +1,4 @@
-import { Handler } from '@netlify/functions';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -22,24 +22,31 @@ interface ContactFormData {
   message: string;
 }
 
-export const handler: Handler = async (event) => {
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse
+) {
   // Only allow POST requests
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' })
-    };
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // Enable CORS
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight request
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
   }
 
   try {
-    const formData: ContactFormData = JSON.parse(event.body || '{}');
+    const formData: ContactFormData = req.body;
 
     // Validate required fields
     if (!formData.name || !formData.email || !formData.arrivalDate || !formData.departureDate) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Missing required fields' })
-      };
+      return res.status(400).json({ error: 'Missing required fields' });
     }
 
     // Create email HTML content
@@ -220,22 +227,16 @@ export const handler: Handler = async (event) => {
       html: emailHtml,
     });
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        success: true,
-        message: 'Email sent successfully',
-        id: data.id
-      })
-    };
+    return res.status(200).json({
+      success: true,
+      message: 'Email sent successfully',
+      id: data.id
+    });
   } catch (error) {
     console.error('Error sending email:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        error: 'Failed to send email',
-        details: error instanceof Error ? error.message : 'Unknown error'
-      })
-    };
+    return res.status(500).json({
+      error: 'Failed to send email',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    });
   }
-};
+}

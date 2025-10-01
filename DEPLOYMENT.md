@@ -10,32 +10,26 @@ The following environment variable is required:
 RESEND_API_KEY=re_bdb2QwvL_G3EHNNSJKzhPDeeDTZogrhpB
 ```
 
-## Netlify Deployment
+## Vercel Deployment
 
-### 1. Connect to Netlify
+### 1. Set Environment Variables in Vercel
 
-1. Push this repository to GitHub
-2. Go to [Netlify](https://app.netlify.com/)
-3. Click "Add new site" → "Import an existing project"
-4. Connect to your GitHub repository
+1. Go to your Vercel project dashboard
+2. Click on "Settings" → "Environment Variables"
+3. Add the following variable:
+   - **Name**: `RESEND_API_KEY`
+   - **Value**: `re_bdb2QwvL_G3EHNNSJKzhPDeeDTZogrhpB`
+   - **Environment**: Production, Preview, and Development
+4. Click "Save"
 
-### 2. Configure Build Settings
+### 2. Redeploy
 
-- **Build command**: `npm run build`
-- **Publish directory**: `dist`
-- **Functions directory**: `netlify/functions`
+After adding the environment variable:
+1. Go to "Deployments" tab
+2. Click the three dots (...) on the latest deployment
+3. Click "Redeploy"
 
-### 3. Set Environment Variables
-
-In Netlify dashboard:
-1. Go to Site settings → Environment variables
-2. Add the following variable:
-   - Key: `RESEND_API_KEY`
-   - Value: `re_bdb2QwvL_G3EHNNSJKzhPDeeDTZogrhpB`
-
-### 4. Deploy
-
-Click "Deploy site" and Netlify will automatically build and deploy your site.
+OR simply push a new commit to trigger automatic redeployment.
 
 ## Resend Setup
 
@@ -48,7 +42,7 @@ For production use, you need to verify your domain in Resend:
 3. Add the DNS records provided by Resend to your domain's DNS settings
 4. Wait for verification (usually takes a few minutes)
 
-Once verified, update the `from` address in `netlify/functions/send-email.ts`:
+Once verified, update the `from` address in `api/send-email.ts`:
 
 ```typescript
 from: 'Wadi Rum Bookings <bookings@yousef-wadirum.guide>'
@@ -56,23 +50,23 @@ from: 'Wadi Rum Bookings <bookings@yousef-wadirum.guide>'
 
 ### Testing Email Functionality
 
-You can test the email functionality locally using Netlify Dev:
+You can test the email functionality locally:
 
 ```bash
 npm install
-netlify dev
+npm run dev
 ```
 
-This will start a local server with the serverless functions available.
+The API endpoint will be available at `http://localhost:5173/api/send-email`
 
 ## Contact Form Behavior
 
 When a visitor submits the contact form:
-1. The form data is sent to `/api/send-email` endpoint
+1. The form data is sent to `/api/send-email` endpoint (Vercel serverless function)
 2. A beautifully formatted email is sent to `yousefwadirum@gmail.com`
 3. The email includes all form details (dates, experiences, contact info, etc.)
 4. WhatsApp is also opened as a backup contact method
-5. The user sees a success message
+5. The user sees a success message and the form resets
 
 ## Local Development
 
@@ -80,16 +74,23 @@ When a visitor submits the contact form:
 # Install dependencies
 npm install
 
-# Run development server (Vite only)
+# Run development server
 npm run dev
-
-# Run with Netlify functions (recommended for testing email)
-npm run dev:netlify
 ```
 
 ## Important Notes
 
 - The `.env` file contains your API key and is gitignored for security
 - Never commit the `.env` file to version control
-- Make sure to set the environment variable in Netlify dashboard for production
+- Make sure to set the environment variable in Vercel dashboard for production
 - Check Resend dashboard for email logs and delivery status
+- The API functions are in the `/api` directory (Vercel automatically deploys these as serverless functions)
+
+## Troubleshooting
+
+If emails aren't sending:
+1. Check Vercel environment variables are set correctly
+2. Check Resend dashboard for error logs
+3. Verify your domain in Resend (if using custom domain)
+4. Check browser console for API errors
+5. Test the API endpoint directly: POST to `/api/send-email` with form data
