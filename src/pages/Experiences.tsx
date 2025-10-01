@@ -9,13 +9,14 @@ export default function Experiences() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] md:h-96 flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: `url(${heroImage})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center',
+            backgroundAttachment: 'scroll'
           }}
         >
           <div className="absolute inset-0 bg-night-sky/50"></div>
