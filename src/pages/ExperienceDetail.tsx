@@ -219,7 +219,17 @@ export default function ExperienceDetail() {
                         Ready to Book?
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                     <CardContent className="space-y-4">
+                      {experience.price && (
+                        <div className="text-center pb-4 border-b border-border">
+                          <div className="text-3xl font-bold text-dune-amber mb-1">
+                            {experience.price} JOD
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            Includes accommodation
+                          </p>
+                        </div>
+                      )}
                       <p className="text-center text-foreground/80">
                         Tell me your dates and group size. I'll respond within 24 hours with availability and details.
                       </p>

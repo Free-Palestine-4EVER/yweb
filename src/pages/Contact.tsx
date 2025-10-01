@@ -437,19 +437,29 @@ ${formData.message ? `💬 Message: ${formData.message}` : ''}
                     <Label className="text-base mb-4 block">Experiences (select all that interest you) *</Label>
                     <div className="grid md:grid-cols-2 gap-3">
                       {[
-                        "Hiking", "Trekking", "8-Hour Full-Day Jeep Tour", "4-Hour Half-Day Jeep Tour", 
-                        "Camel Rides", "Jebel Umm Ad Dami", "Burdah Arch", "Jebel Khash Route"
+                        { name: "Hiking", price: 70 },
+                        { name: "Trekking", price: 80 },
+                        { name: "8-Hour Full-Day Jeep Tour", price: 65 },
+                        { name: "4-Hour Half-Day Jeep Tour", price: 50 },
+                        { name: "Camel Rides", price: 25 },
+                        { name: "Jebel Umm Ad Dami", price: 110 },
+                        { name: "Burdah Arch", price: 80 },
+                        { name: "Jebel Khash Route", price: 100 }
                       ].map(experience => (
-                        <div key={experience} className="flex items-center space-x-2">
-                          <Checkbox 
-                            id={experience}
-                            checked={formData.experiences.includes(experience)}
-                            onCheckedChange={(checked) => handleExperienceChange(experience, checked as boolean)}
-                          />
-                          <Label htmlFor={experience} className="text-sm font-normal">{experience}</Label>
+                        <div key={experience.name} className="flex items-center justify-between space-x-2 p-2 rounded hover:bg-muted/50">
+                          <div className="flex items-center space-x-2">
+                            <Checkbox 
+                              id={experience.name}
+                              checked={formData.experiences.includes(experience.name)}
+                              onCheckedChange={(checked) => handleExperienceChange(experience.name, checked as boolean)}
+                            />
+                            <Label htmlFor={experience.name} className="text-sm font-normal cursor-pointer">{experience.name}</Label>
+                          </div>
+                          <span className="text-sm font-semibold text-dune-amber whitespace-nowrap">{experience.price} JOD</span>
                         </div>
                       ))}
                     </div>
+                    <p className="text-xs text-muted-foreground mt-2">All prices include accommodation</p>
                   </div>
 
                   {/* Camping Preference */}

@@ -13,6 +13,7 @@ export interface Experience {
   description: string;
   duration: string;
   difficulty: "Easy" | "Moderate" | "Challenging";
+  price: number;
   highlights: string[];
   itinerary: string[];
   included: string[];
@@ -30,6 +31,7 @@ export const experiences: Experience[] = [
     description: "Scenic trails across sandstone valleys and hidden canyons. We set the pace to your level.",
     duration: "Half-day or Full-day options",
     difficulty: "Easy",
+    price: 70,
     bestTime: "Morning or late afternoon for cooler temperatures",
     image: hikingImage,
     highlights: ["Scenic valleys", "Hidden canyons", "Rock formations", "Desert wildlife"],
@@ -80,6 +82,7 @@ export const experiences: Experience[] = [
     description: "Multi-day routes with lightweight packs, sunsets from ridge lines, and quiet mornings in the dunes.",
     duration: "1-3 days",
     difficulty: "Moderate",
+    price: 80,
     bestTime: "Spring and autumn for multi-day comfort",
     image: trekkingImage,
     highlights: ["Ridge line sunsets", "Desert camping", "Sunrise views", "Ancient routes"],
@@ -132,6 +135,7 @@ export const experiences: Experience[] = [
     description: "See Wadi Rum's highlights and secret spots with flexible stops for photos, tea, and short walks.",
     duration: "~8 hours",
     difficulty: "Easy",
+    price: 65,
     bestTime: "All year with seasonal time adjustments",
     image: jeepFullImage,
     highlights: ["Lawrence's Spring", "Red Sand Dune", "Natural bridges", "Bedouin tea ceremony"],
@@ -180,7 +184,8 @@ export const experiences: Experience[] = [
     title: "4-Hour Half-Day Jeep Tour",
     description: "Perfect if you're short on time—key vistas, natural arches, and Bedouin tea by the fire.",
     duration: "~4 hours (morning or afternoon)",
-    difficulty: "Easy", 
+    difficulty: "Easy",
+    price: 50,
     bestTime: "Morning for cooler temperatures, afternoon for sunset",
     image: jeepHalfImage,
     highlights: ["Natural arch", "Desert vistas", "Tea ceremony", "Rock formations"],
@@ -231,6 +236,7 @@ export const experiences: Experience[] = [
     description: "A traditional way to cross the sand—slow, peaceful, and unforgettable.",
     duration: "1-3 hours (extendable)",
     difficulty: "Easy",
+    price: 25,
     bestTime: "Early morning or late afternoon",
     image: camelImage,
     highlights: ["Traditional transport", "Peaceful desert crossing", "Camel handling experience", "Desert silence"],
@@ -278,7 +284,8 @@ export const experiences: Experience[] = [
     title: "Jebel Umm Ad Dami (Summit)",
     description: "Climb Jordan's highest peak with a local guide. Panoramic views over the Saudi border.", 
     duration: "Full day",
-    difficulty: "Moderate", 
+    difficulty: "Moderate",
+    price: 110,
     bestTime: "Cooler months (October-April) recommended",
     image: summitImage,
     highlights: ["Jordan's highest peak", "Saudi border views", "Challenging climb", "Achievement summit"],
@@ -330,6 +337,7 @@ export const experiences: Experience[] = [
     description: "Hike to one of Wadi Rum's most iconic natural rock bridges.",
     duration: "4-6 hours",
     difficulty: "Moderate",
+    price: 80,
     bestTime: "Morning start recommended for cooler hiking",
     image: burdahImage,
     highlights: ["Natural rock bridge", "Scrambling adventure", "Panoramic views", "Geological wonder"],
@@ -380,6 +388,7 @@ export const experiences: Experience[] = [
     description: "Quiet, scenic ridge walk with sweeping desert views—perfect for sunrise or sunset camps.",
     duration: "1-2 days",
     difficulty: "Moderate",
+    price: 100,
     bestTime: "All seasons with appropriate gear",
     image: khashImage,
     highlights: ["Ridge walking", "Sunrise/sunset camps", "Sweeping views", "Peaceful solitude"],

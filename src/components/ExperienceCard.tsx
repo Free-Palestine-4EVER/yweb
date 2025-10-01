@@ -9,6 +9,7 @@ interface ExperienceCardProps {
   description: string;
   duration: string;
   difficulty: "Easy" | "Moderate" | "Challenging";
+  price?: number;
   slug: string;
   image?: string;
   highlights?: string[];
@@ -26,6 +27,7 @@ export default function ExperienceCard({
   description,
   duration,
   difficulty,
+  price,
   slug,
   image,
   highlights = [],
@@ -66,9 +68,16 @@ export default function ExperienceCard({
           <h3 className="font-heading font-semibold text-xl text-foreground mb-2 line-clamp-2 group-hover:text-accent transition-colors">
             {title}
           </h3>
-          <div className="flex items-center text-muted-foreground text-sm mb-3">
-            <Clock className="h-4 w-4 mr-1" />
-            {duration}
+          <div className="flex items-center justify-between text-muted-foreground text-sm mb-3">
+            <div className="flex items-center">
+              <Clock className="h-4 w-4 mr-1" />
+              {duration}
+            </div>
+            {price && (
+              <div className="text-lg font-semibold text-dune-amber">
+                {price} JOD
+              </div>
+            )}
           </div>
         </div>
         
