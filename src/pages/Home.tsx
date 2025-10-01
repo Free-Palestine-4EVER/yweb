@@ -162,7 +162,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-in">
             {experiences.map((experience, index) => <div key={experience.slug} className={`animate-fade-in animate-stagger-${Math.min(index % 4 + 1, 4)}`}>
-                <ExperienceCard title={experience.title} description={experience.description} duration={experience.duration} difficulty={experience.difficulty} slug={experience.slug} image={experience.image} highlights={experience.highlights.slice(0, 3)} />
+                <ExperienceCard title={experience.title} description={experience.description} duration={experience.duration} difficulty={experience.difficulty} price={experience.price} slug={experience.slug} image={experience.image} highlights={experience.highlights.slice(0, 3)} />
               </div>)}
           </div>
         </div>
