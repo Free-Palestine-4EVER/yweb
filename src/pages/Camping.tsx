@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import bubbleCamp from "@/assets/bubble-camp.jpg";
 import outsideCamping from "@/assets/outside_camping.jpg";
 import traditionalCamp from "@/assets/traditional-camp-new.jpg";
-import FloatingObjects from "@/components/FloatingObjects";
 import heroImage from "@/assets/hero-desert.jpg";
 
 const campingOptions = [
@@ -62,25 +61,13 @@ const campingOptions = [
 export default function Camping() {
   return (
     <div className="min-h-screen">
-      <FloatingObjects />
       {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: 'cover', 
-            backgroundPosition: 'center'
-          }}
-        >
-          <div className="absolute inset-0 bg-night-sky/40"></div>
-        </div>
-        
+      <section className="relative py-20 flex items-center justify-center bg-gradient-to-b from-dune-amber/20 to-desert-sand/30">
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold text-cloud-white mb-6 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold text-foreground mb-6">
             Camping Options
           </h1>
-          <p className="text-xl text-cloud-white/90 max-w-3xl mx-auto leading-relaxed animate-fade-in animate-stagger-1">
+          <p className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
             Choose how you want to sleep in the desert. From luxury bubbles to classic Bedouin tents—or roll out your mat and watch the Milky Way.
           </p>
         </div>
@@ -89,7 +76,7 @@ export default function Camping() {
       {/* Introduction */}
       <section className="py-16 bg-muted/20">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-6">
               Three Ways to Experience Desert Nights
             </h2>
@@ -97,22 +84,22 @@ export default function Camping() {
               Every camping style offers a unique way to connect with Wadi Rum's stunning night sky. I'll help you choose the option that best fits your comfort level, budget, and the type of experience you're seeking.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center animate-fade-in animate-stagger-1">
-                <div className="w-16 h-16 bg-dune-amber rounded-full flex items-center justify-center mx-auto mb-4 animate-float">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-dune-amber rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star className="h-8 w-8 text-accent-foreground" />
                 </div>
                 <h3 className="font-heading font-semibold text-foreground mb-2">Luxury</h3>
                 <p className="text-foreground/70 text-sm">Bubble camps with all amenities</p>
               </div>
-              <div className="text-center animate-fade-in animate-stagger-2">
-                <div className="w-16 h-16 bg-dune-amber rounded-full flex items-center justify-center mx-auto mb-4 animate-float-reverse">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-dune-amber rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-8 w-8 text-accent-foreground" />
                 </div>
                 <h3 className="font-heading font-semibold text-foreground mb-2">Cultural</h3>
                 <p className="text-foreground/70 text-sm">Traditional Bedouin experience</p>
               </div>
-              <div className="text-center animate-fade-in animate-stagger-3">
-                <div className="w-16 h-16 bg-night-sky rounded-full flex items-center justify-center mx-auto mb-4 animate-float">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-night-sky rounded-full flex items-center justify-center mx-auto mb-4">
                   <Tent className="h-8 w-8 text-primary-foreground" />
                 </div>
                 <h3 className="font-heading font-semibold text-foreground mb-2">Adventure</h3>
@@ -130,23 +117,22 @@ export default function Camping() {
             {campingOptions.map((option, index) => (
               <div key={option.id} id={option.id} className="scroll-mt-24">
                 <div className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                  <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} animate-slide-in-${index % 2 === 0 ? 'left' : 'right'}`}>
+                  <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                     <div className="relative overflow-hidden rounded-2xl">
                       <img 
                         src={option.image} 
                         alt={option.title}
-                        className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-80 object-cover"
                       />
                       <div className="absolute top-4 left-4">
-                        <Badge variant="secondary" className="bg-night-sky/90 text-cloud-white text-sm px-3 py-1 animate-pulse-glow">
+                        <Badge variant="secondary" className="bg-night-sky/90 text-cloud-white text-sm px-3 py-1">
                           {option.title}
                         </Badge>
                       </div>
-                      <div className="absolute -top-4 -right-4 w-16 h-16 bg-dune-amber/10 rounded-full animate-float" />
                     </div>
                   </div>
                   
-                  <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''} animate-slide-in-${index % 2 === 0 ? 'right' : 'left'}`}>
+                  <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
                     <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
                       {option.title}
                     </h2>
@@ -154,7 +140,7 @@ export default function Camping() {
                       {option.description}
                     </p>
 
-                    <Card className="mb-6 hover:shadow-desert transition-shadow duration-300">
+                    <Card className="mb-6">
                       <CardHeader>
                         <CardTitle className="flex items-center text-lg">
                           <Star className="h-5 w-5 mr-2 text-dune-amber" />
@@ -174,7 +160,7 @@ export default function Camping() {
                     </Card>
 
                     <div className="grid md:grid-cols-2 gap-4 mb-6">
-                      <Card className="hover:shadow-soft transition-shadow duration-300">
+                      <Card>
                         <CardHeader className="pb-3">
                           <CardTitle className="text-lg">Best For</CardTitle>
                         </CardHeader>
@@ -183,14 +169,14 @@ export default function Camping() {
                         </CardContent>
                       </Card>
 
-                      <Card className="hover:shadow-soft transition-shadow duration-300">
+                      <Card>
                         <CardHeader className="pb-3">
                           <CardTitle className="text-lg">Amenities</CardTitle>
                         </CardHeader>
                         <CardContent>
                           <div className="flex flex-wrap gap-2">
                             {option.amenities.map((amenity, i) => (
-                              <Badge key={i} variant="outline" className="text-xs hover:bg-dune-amber/20 transition-colors">
+                              <Badge key={i} variant="outline" className="text-xs">
                                 {amenity}
                               </Badge>
                             ))}
@@ -209,7 +195,6 @@ export default function Camping() {
                       variant="hero" 
                       size="lg"
                       asChild
-                      className="shadow-desert hover:scale-105 transition-transform duration-300 animate-pulse-glow"
                     >
                       <a href={`/contact#booking?camping=${encodeURIComponent(option.title)}`}>
                         Book {option.title}
@@ -226,18 +211,17 @@ export default function Camping() {
       {/* Call to Action */}
       <section className="py-20 bg-night-sky text-cloud-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-6 animate-fade-in text-cloud-white">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-6 text-cloud-white">
             Not Sure Which Style to Choose?
           </h2>
-          <p className="text-xl text-cloud-white/90 mb-8 max-w-3xl mx-auto animate-fade-in animate-stagger-1">
+          <p className="text-xl text-cloud-white/90 mb-8 max-w-3xl mx-auto">
             Tell me about your travel style, comfort preferences, and what you hope to experience. I'll recommend the perfect camping option for your desert adventure.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animate-stagger-2">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               variant="desert" 
               size="lg" 
               asChild
-              className="hover:scale-105 transition-all duration-300"
             >
               <a href="/contact#booking">
                 Get My Recommendation
@@ -247,7 +231,6 @@ export default function Camping() {
               variant="sand" 
               size="lg" 
               asChild
-              className="hover:scale-105 transition-all duration-300"
             >
               <a href="https://wa.me/962779886572" target="_blank">
                 WhatsApp Yousef

@@ -13,7 +13,6 @@ import outsideCamping from "@/assets/outside_camping.jpg";
 import camelRide from "@/assets/camel_ride.jpg";
 import trekking from "@/assets/trekking.jpg";
 import touristJumping from "@/assets/picture_with_tourist.jpg";
-import FloatingObjects from "@/components/FloatingObjects";
 const experiences = getAllExperiences();
 const campingOptions = [{
   title: "Bubble Camps",
@@ -73,22 +72,12 @@ export default function Home() {
     }
   };
   return <div className="min-h-screen">
-      <FloatingObjects />
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{
-        backgroundImage: `url(${heroImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}>
-          <div className="absolute inset-0 bg-night-sky/40"></div>
-        </div>
-        
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-dune-amber/20 to-desert-sand/30">
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold text-cloud-white mb-6 leading-tight animate-fade-in">Explore Wadi Rum with Yousef</h1>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in animate-stagger-2">
-            <Button variant="hero" size="lg" onClick={scrollToBooking} className="text-lg px-8 py-4 shadow-night hover:shadow-desert">
+          <h1 className="text-5xl md:text-7xl font-heading font-bold text-foreground mb-6 leading-tight">Explore Wadi Rum with Yousef</h1>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button variant="hero" size="lg" onClick={scrollToBooking} className="text-lg px-8 py-4">
               Book / Reserve
             </Button>
             <Button variant="sand" size="lg" onClick={scrollToExperiences} className="text-lg px-8 py-4">
@@ -104,7 +93,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 animate-slide-in-left">
+              <div className="order-2 lg:order-1">
                 <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-6">
                   Your Local Desert Guide
                 </h2>
@@ -137,11 +126,9 @@ export default function Home() {
                   </a>
                 </Button>
               </div>
-              <div className="order-1 lg:order-2 animate-slide-in-right">
+              <div className="order-1 lg:order-2">
                 <div className="relative">
-                  <img src={yousefPortrait} alt="Yousef - Wadi Rum Guide" className="w-full max-w-md mx-auto rounded-2xl shadow-desert hover:scale-105 transition-transform duration-300" />
-                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-dune-amber/20 rounded-full animate-float" />
-                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-desert-sand/15 rounded-full animate-float-reverse" />
+                  <img src={yousefPortrait} alt="Yousef - Wadi Rum Guide" className="w-full max-w-md mx-auto rounded-2xl shadow-desert" />
                 </div>
               </div>
             </div>
@@ -160,8 +147,8 @@ export default function Home() {
               Choose your adventure: from gentle jeep tours to challenging summit climbs. Every experience is private and adapted to your pace.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-in">
-            {experiences.map((experience, index) => <div key={experience.slug} className={`animate-fade-in animate-stagger-${Math.min(index % 4 + 1, 4)}`}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {experiences.map((experience) => <div key={experience.slug}>
                 <ExperienceCard title={experience.title} description={experience.description} duration={experience.duration} difficulty={experience.difficulty} price={experience.price} slug={experience.slug} image={experience.image} highlights={experience.highlights.slice(0, 3)} />
               </div>)}
           </div>
@@ -179,10 +166,10 @@ export default function Home() {
               Choose how you want to sleep in the desert. From luxury bubbles to classic Bedouin tents—or roll out your mat and watch the Milky Way.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 animate-fade-in">
-            {campingOptions.map((option, index) => <div key={index} className={`group animate-fade-in animate-stagger-${Math.min(index + 1, 3)}`}>
+          <div className="grid md:grid-cols-3 gap-8">
+            {campingOptions.map((option, index) => <div key={index} className="group">
                 <div className="relative overflow-hidden rounded-2xl mb-4">
-                  <img src={option.image} alt={option.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img src={option.image} alt={option.title} className="w-full h-64 object-cover" />
                   <div className="absolute top-4 left-4">
                     <Badge variant="secondary" className="bg-night-sky/90 text-cloud-white">
                       {option.badge}
@@ -206,7 +193,7 @@ export default function Home() {
       {/* Instagram Section */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12 animate-fade-in">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-4">
               From the Desert Today
             </h2>
@@ -233,12 +220,12 @@ export default function Home() {
           }, {
             img: yousefAbout,
             alt: "Yousef in traditional attire"
-          }].map((item, i) => <div key={i} className={`aspect-square bg-desert-sand rounded-lg overflow-hidden animate-fade-in animate-stagger-${Math.min(i + 1, 4)}`}>
-                <img src={item.img} alt={item.alt} className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
+          }].map((item, i) => <div key={i} className="aspect-square bg-desert-sand rounded-lg overflow-hidden">
+                <img src={item.img} alt={item.alt} className="w-full h-full object-cover" />
               </div>)}
           </div>
-          <div className="text-center animate-fade-in animate-stagger-3">
-            <Button variant="desert" size="lg" className="animate-pulse-glow" asChild>
+          <div className="text-center">
+            <Button variant="desert" size="lg" asChild>
               <a href="https://www.instagram.com/youssef.wadirum" target="_blank" rel="noopener noreferrer">
                 <Instagram className="mr-2 h-5 w-5" />
                 Follow @youssef.wadirum

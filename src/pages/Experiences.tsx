@@ -9,24 +9,12 @@ export default function Experiences() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-96 flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'scroll'
-          }}
-        >
-          <div className="absolute inset-0 bg-night-sky/50"></div>
-        </div>
-        
+      <section className="relative py-20 flex items-center justify-center bg-gradient-to-b from-dune-amber/20 to-desert-sand/30">
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold text-cloud-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold text-foreground mb-6">
             Desert Experiences
           </h1>
-          <p className="text-xl text-cloud-white/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
             Choose your adventure in Wadi Rum. Every experience is private, guided by me personally, and adapted to your interests and pace.
           </p>
         </div>

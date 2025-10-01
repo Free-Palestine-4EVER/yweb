@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import yousefAbout from "@/assets/yousef-main-2.jpeg";
-import FloatingObjects from "@/components/FloatingObjects";
 import heroImage from "@/assets/hero-desert.jpg";
 
 const highlights = [
@@ -60,25 +59,13 @@ const services = [
 export default function About() {
   return (
     <div className="min-h-screen">
-      <FloatingObjects />
       {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        >
-          <div className="absolute inset-0 bg-night-sky/50"></div>
-        </div>
-        
+      <section className="relative py-20 flex items-center justify-center bg-gradient-to-b from-dune-amber/20 to-desert-sand/30">
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold text-cloud-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-heading font-bold text-foreground mb-6">
             Meet Yousef
           </h1>
-          <p className="text-xl text-cloud-white/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
             Your Bedouin Guide in Wadi Rum
           </p>
         </div>
@@ -143,10 +130,10 @@ export default function About() {
                 What Makes My Tours Special
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {highlights.map((highlight, index) => (
-                  <Card key={index} className="group hover:shadow-desert transition-all duration-300">
+                 {highlights.map((highlight, index) => (
+                  <Card key={index} className="group">
                     <CardContent className="p-6">
-                      <div className="w-12 h-12 bg-dune-amber rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <div className="w-12 h-12 bg-dune-amber rounded-lg flex items-center justify-center mb-4">
                         <highlight.icon className="h-6 w-6 text-accent-foreground" />
                       </div>
                       <h4 className="font-heading font-semibold text-foreground mb-2">
