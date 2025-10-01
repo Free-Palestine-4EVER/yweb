@@ -240,7 +240,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.consent) {
       toast({
         title: "Consent Required",
@@ -250,8 +250,28 @@ export default function Contact() {
       return;
     }
 
-    // Create WhatsApp message
-    const whatsappMessage = `
+    try {
+      // Send email via API
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      // Show success message
+      toast({
+        title: "Booking Request Sent! 🎉",
+        description: "I've received your inquiry and will respond within 24 hours. Check your email (including spam) for my reply.",
+      });
+
+      // Create WhatsApp message as backup
+      const whatsappMessage = `
 Desert Adventure Inquiry:
 
 📅 Dates: ${formData.arrivalDate} - ${formData.departureDate}
@@ -265,17 +285,62 @@ Desert Adventure Inquiry:
 ${formData.phone ? `📱 Phone: ${formData.phone}` : ''}
 
 ${formData.message ? `💬 Message: ${formData.message}` : ''}
-    `.trim();
+      `.trim();
 
-    // Open WhatsApp with pre-filled message
-    const whatsappUrl = `https://wa.me/962779886572?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappUrl, '_blank');
+      // Also open WhatsApp for immediate contact
+      const whatsappUrl = `https://wa.me/962779886572?text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappUrl, '_blank');
 
-    // Show success message
-    toast({
-      title: "Thanks! Opening WhatsApp...",
-      description: "I'll reach out within 24 hours to confirm details.",
-    });
+      // Reset form
+      setFormData({
+        arrivalDate: "",
+        departureDate: "",
+        adults: 1,
+        children: 0,
+        experiences: [],
+        campingPreference: "",
+        pace: "",
+        addOns: [],
+        transport: "",
+        dietaryNotes: "",
+        languages: [],
+        preferredContact: "",
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        consent: false
+      });
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+
+      // Fallback to WhatsApp only if email fails
+      toast({
+        title: "Opening WhatsApp instead...",
+        description: "Let's connect via WhatsApp for a faster response!",
+        variant: "default"
+      });
+
+      const whatsappMessage = `
+Desert Adventure Inquiry:
+
+📅 Dates: ${formData.arrivalDate} - ${formData.departureDate}
+👥 Group: ${formData.adults} adults${formData.children > 0 ? `, ${formData.children} children` : ''}
+🏜️ Experiences: ${formData.experiences.join(', ') || 'To be discussed'}
+🏕️ Camping: ${formData.campingPreference || 'To be discussed'}
+🚗 Transport: ${formData.transport || 'To be discussed'}
+
+📞 Contact: ${formData.name}
+📧 Email: ${formData.email}
+${formData.phone ? `📱 Phone: ${formData.phone}` : ''}
+
+${formData.message ? `💬 Message: ${formData.message}` : ''}
+      `.trim();
+
+      const whatsappUrl = `https://wa.me/962779886572?text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappUrl, '_blank');
+    }
   };
 
   const handleExperienceChange = (experience: string, checked: boolean) => {

@@ -73,9 +73,19 @@ export default function Home() {
   };
   return <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-dune-amber/20 to-desert-sand/30">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={heroImage}
+            alt="Wadi Rum Desert"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
+        </div>
+
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold text-foreground mb-6 leading-tight">Explore Wadi Rum with Yousef</h1>
+          <h1 className="text-5xl md:text-7xl font-heading font-bold text-cloud-white mb-6 leading-tight drop-shadow-lg">Explore Wadi Rum with Yousef</h1>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="hero" size="lg" onClick={scrollToBooking} className="text-lg px-8 py-4">
               Book / Reserve
